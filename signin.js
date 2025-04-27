@@ -10,6 +10,8 @@ const verifypath = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\")
 
 //JSON.parse(localStorage.getItem('users'))
 
+var hi;
+
 let users = [{
     username: 'Ayaan',
     email: 'ayaan.khalique3@gmail.com',
