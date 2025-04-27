@@ -16,7 +16,17 @@ let users = [{
     username: 'Ayaan',
     email: 'ayaan.khalique3@gmail.com',
     password: 'sd',
-    visits: JSON.parse(localStorage.getItem('visits')) ? JSON.parse(localStorage.getItem('visits')) : 0,
+    visits: JSON.parse(localStorage.getItem('visits')) ? JSON.parse(localStorage.getItem('visits')) : 0
+}, {
+    username: 'Emaan',
+    email: 'emaan.khalique@gmail.com',
+    password: 'sd',
+    visits: JSON.parse(localStorage.getItem('visits')) ? JSON.parse(localStorage.getItem('visits')) : 0
+}, {
+    username: 'Khalique',
+    email: 'khaliquer@gmail.com',
+    password: 'Oyster22',
+    visits: JSON.parse(localStorage.getItem('visits')) ? JSON.parse(localStorage.getItem('visits')) : 0
 }];
 /*
 [{
