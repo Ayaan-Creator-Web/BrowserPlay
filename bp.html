@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bp.css"></style>
+        <title>Browserplay</title>
+        <link rel="icon" type="image/x-icon" href="BrowserPlay.png">
+    </head>
+    <body>
+        <h1 id="text">Welcome to the browser play!</h1>
+        <div class="button-container">
+            <button class="button" style="background-color: red;" id="crash" onclick="crash();">Click to Crash the Browser</button>
+            <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
+            <button class="button" style="background-color: blue;" id="close" onclick="closeWindow();">Click to Close the Browser</button>
+            <button class="button" style="background-color: orange;" id="new" onclick="window.open('' ,'_blank');">Click to Open a New Tab</button>
+            <button class="button" style="background-color: rgb(206, 1, 206);" id="selfDestruct" onclick="selfDestruct()">Click to Self Destruct the Browser</button>
+            <button class="button" style="background-color: rgb(1, 206, 206);" id="hide" onclick="alert('This feature is still being tested'); //document.body.style.cursor = '';">Click to Hide the Cursor</button>
+            <button class="button" style="background-color: rgb(134, 99, 230);" id="shakeBtn" onclick="shakeButton();">Click to Shake Me!</button>
+        </div>
+        <script src="bp.js"></script>
+    </body>
+</html>

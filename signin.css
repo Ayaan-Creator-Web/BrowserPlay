@@ -1,0 +1,44 @@
+.sign-in-button {
+    border: none;
+    color: white;
+    background-color: rgb(47, 182, 34);
+    padding: 4px;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.sign-in-button:hover {
+    border: none;
+    color: white;
+    background-color: rgb(13, 153, 0);
+    padding: 4px;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.inputs {
+    border-color: rgb(0, 0, 0);
+    border-width: 1pt;
+    padding: 4px;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fP {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: blue;
+    color: blue;
+}
+
+.fP:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: purple;
+    color: purple;
+}
