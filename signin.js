@@ -1,8 +1,8 @@
-var email
+var email;
 
-var password
+var password;
 
-var username
+var username;
 
 var savedusername = '';
 
