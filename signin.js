@@ -47,7 +47,7 @@ function signin() {
                         const user = users.find(u => u.email === email);
                         localStorage.setItem('savedUser', JSON.stringify(user));
                         //window.location.href = "http://127.0.0.1:5500/Browserplay/bp.html";
-                        window.location.href = "https://ayaan-creator-web.github.io/Browserplay/lbp.html";
+                        window.location.href = "https://ayaan-creator-web.github.io/Browserplay/bp.html";
                         savedusername = '';
                     }
                 }
