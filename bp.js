@@ -1,9 +1,10 @@
 function crash() {
     while (true) {}
 }
-
+window.resizeTo(300, 300);
 const user = JSON.parse(localStorage.getItem('savedUser')) ? JSON.parse(localStorage.getItem('savedUser')) : null;
 
+//copyToClipboard('hi');
 if (!user) {
     //window.location.href = "http://127.0.0.1:5500/Sign-In/Sign-In.html";
     document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
@@ -21,6 +22,10 @@ function header() {
     }
     else if (visits == 1) {
         header.innerText = `Welcome to Browserplay, ${user.username}!`;
+    }
+
+    if (header.innerText = 'You are not logged in') {
+        document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
     }
 }
 
@@ -71,4 +76,9 @@ function shakeButton() {
     let button = document.getElementById("shakeBtn");
     button.classList.add("shake");
     setTimeout(() => button.classList.remove("shake"), 500);
+}
+
+function hide() {
+    const div = document.getElementById('container');
+    div.classList.add('hidden');
 }
