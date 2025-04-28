@@ -2,13 +2,13 @@ function crash() {
     while (true) {}
 }
 
+const user = JSON.parse(localStorage.getItem('savedUser')) ? JSON.parse(localStorage.getItem('savedUser')) : null;
+
 if (!user) {
     //window.location.href = "http://127.0.0.1:5500/Sign-In/Sign-In.html";
     document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
     //alert('You are not logged in. Please log in to access this page.');
 }
-
-const user = JSON.parse(localStorage.getItem('savedUser')) ? JSON.parse(localStorage.getItem('savedUser')) : null;
 
 var visits = localStorage.getItem('visits') ? JSON.parse(localStorage.getItem('visits')) : 0;
 visits += 1;
