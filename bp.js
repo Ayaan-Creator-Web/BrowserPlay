@@ -24,9 +24,9 @@ function header() {
         header.innerText = `Welcome to Browserplay, ${user.username}!`;
     }
 
-    if (header.innerText = 'You are not logged in') {
+   /* if (header.innerText = 'You are not logged in') {
         document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
-    }
+    }*/
 }
 
 header();
