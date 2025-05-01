@@ -1,6 +1,6 @@
 function crash() {
     while (true) {}
-}
+}//
 window.resizeTo(300, 300);
 const user = JSON.parse(localStorage.getItem('savedUser')) ? JSON.parse(localStorage.getItem('savedUser')) : null;
 
