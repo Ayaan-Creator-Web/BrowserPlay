@@ -10,7 +10,7 @@ if (!JSON.parse(localStorage.getItem('savedUser'))) {
     document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
     //alert('You are not logged in. Please log in to access this page.');
 }
-else {//
+else {
         //HTML
         document.body.innerHTML = `   
             <div id="container">
