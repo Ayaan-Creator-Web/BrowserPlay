@@ -1,6 +1,6 @@
 function crash() {
     while (true) {}
-}//
+}
 window.resizeTo(300, 300);
 const user = JSON.parse(localStorage.getItem('savedUser')) ? JSON.parse(localStorage.getItem('savedUser')) : null;
 
@@ -9,6 +9,33 @@ if (!JSON.parse(localStorage.getItem('savedUser'))) {
     //window.location.href = "http://127.0.0.1:5500/Sign-In/Sign-In.html";
     document.body.innerHTML = '<h1 style="color: red;">You are not logged in. Please log in to access this page.</h1>';
     //alert('You are not logged in. Please log in to access this page.');
+}
+else {
+        //HTML
+        document.body.innerHTML = `   
+            <div id="container">
+            <h1 id="text">You are not logged in</h1>
+            <div class="button-container">
+                <button class="button" style="background-color: red;" id="crash" onclick="crash();">Click to Crash the Browser</button>
+                <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
+                <button class="button" style="background-color: blue;" id="close" onclick="closeWindow();">Click to Close the Browser</button>
+                <button class="button" style="background-color: orange;" id="new" onclick="window.open('' ,'_blank');">Click to Open a New Tab</button>
+                <button class="button" style="background-color: rgb(206, 1, 206);" id="selfDestruct" onclick="selfDestruct()">Click to Self Destruct the Browser</button>
+                <button class="button" style="background-color: rgb(1, 206, 206);" id="hide" onclick="hide()">Click to Hide the Cursor</button>
+                <button class="button" style="background-color: rgb(134, 99, 230);" id="shakeBtn" onclick="shakeButton();">Click to Shake Me</button>
+                <button class="button" style="background-color: rgb(99, 230, 178);" id="him" onclick="shakeButton();">Click to Shake Him</button>
+                <button class="button" style="background-color: rgb(129, 230, 99);" id="refresh" onclick="window.location.href='';">Click to Refresh the Page</button>
+                <button class="button" style="background-color: rgb(255, 0, 0);" id="crashComputer" onclick="crashComputer()">Click to Crash your Computer</button>
+                <button class="button" style="background-color: rgb(30, 163, 108);" id="disableEnable" onclick="disableAll()">Click to Disable All Buttons</button>
+                <button class="button" style="background-color: green;" id="alertSpam" onclick="alertSpam()">Click to Alert Spam</button>
+                <button class="button" style="background-color: rgb(58, 123, 126);" id="randomThing" onclick="randomThing()">Click to Do Something Random</button>
+                <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
+                <button class="button" style="background-color: rgb(58, 123, 126);" id="404" onclick="four04()">Click to Break</button>
+                <button class="button" style="background-color: rgb(24, 236, 248);" id="bold" onclick="sep()">Click to Make All Buttons Furtherly Separated</button>
+            </div>
+            </div>
+            <script src="bp.js"></script>
+        `
 }
 
 var visits = localStorage.getItem('visits') ? JSON.parse(localStorage.getItem('visits')) : 0;
