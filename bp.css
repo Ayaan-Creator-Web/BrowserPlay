@@ -1,21 +1,33 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+#container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+}
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
 .button {
-    color: white; padding: 15px; /*cursor: pointer;*/
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
 }
-
-* {
-    cursor: url('image-removebg-preview (1).png'), auto;
+.hidden {
+    display: none;
 }
-
-html, body {
-    margin: 0;          /* Remove default margin */
-    padding: 5px;      /* Add padding around the page */
-    min-height: 100%;   /* Ensure body takes up at least full height */
-    box-sizing: border-box;  /* Ensure padding doesn't mess with the width */
-}
-
 .shake {
     animation: shake 0.5s ease-in-out;
-}
+    }
 
 @keyframes shake {
     0% { transform: translateX(0); }
@@ -25,13 +37,6 @@ html, body {
     100% { transform: translateX(0); }
 }
 
-.button-container button {
-    margin-right: 10px; /* Adjust the gap here */
-    margin-bottom: 10px
-}
-
-html, body {
-    height: 100%;  /* Ensure full page height */
-    margin: 0;     /* Remove default margin */
-    overflow: hidden;  /* Prevent scrollbars from causing issues */
+.sep {
+    margin: 20px 0;
 }
