@@ -1,16 +1,14 @@
-var email;
+var email
 
-var password;
+var password
 
-var username;
+var username
 
 var savedusername = '';
 
 const verifypath = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 //JSON.parse(localStorage.getItem('users'))
-
-var hi;
 
 let users = [{
     username: 'Ayaan',
@@ -35,19 +33,19 @@ let users = [{
     password: 'student123'
 }, {
     username: 'Wasiullah',
-    email: 'wasiullah@example.com',
+    email: 'wasiullah@example.com', 
     password: 'teacher321'
 }]
 */
 
-function signin() {
+async function signin() {
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     username = document.getElementById('username').value
-
+    //fetched data
     //fetching updated user from local storage
     users = users;
-    users.forEach((check) => {
+    users.forEach(async (check) => {
         //console.log(x);
         //debugger;
         if(check.username == username){
@@ -58,9 +56,12 @@ function signin() {
                         savedusername += localStorage.setItem('savedusername', JSON.stringify(username));
                         const user = users.find(u => u.email === email);
                         localStorage.setItem('savedUser', JSON.stringify(user));
-                        //window.location.href = "http://127.0.0.1:5500/Browserplay/bp.html";
-                        /**/
-                        window.location.href = "https://ayaan-creator-web.github.io/BrowserPlay/bp.html";
+                        document.querySelector('.all').classList.add('hidden');
+                        document.body.innerHTML += '<div id="load"></div>';
+                        document.getElementById('load').classList.add('load');
+                        await delay(4000);
+                        window.location.href = "http://127.0.0.1:5500/Browserplay/bp.html";
+                        //window.location.href = "https://ayaan-creator-web.github.io/BrowserPlay/bp.html";
                         savedusername = '';
                     }
                 }
@@ -83,7 +84,7 @@ function signin() {
             //alert('Please Check Username or Email');
         }
     });
-    //verifyemail(email)
+    //verifyemail(email)*/
 }
 
 function signup(newId) {
@@ -150,6 +151,7 @@ async function forgotPassword() {
     }
 }
 
+function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 //localStorage.clear()
 //johndoe@example.com
