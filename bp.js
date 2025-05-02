@@ -1,3 +1,30 @@
+var dontClicks = 0;
+
+const html = `   
+            <div id="container">
+            <h1 id="text">You are not logged in</h1>
+            <div class="button-container">
+                <button class="button" style="background-color: red;" id="crash" onclick="crash();">Click to Crash the Browser</button>
+                <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
+                <button class="button" style="background-color: blue;" id="close" onclick="closeWindow();">Click to Close the Browser</button>
+                <button class="button" style="background-color: orange;" id="new" onclick="window.open('' ,'_blank');">Click to Open a New Tab</button>
+                <button class="button" style="background-color: rgb(206, 1, 206);" id="selfDestruct" onclick="selfDestruct()">Click to Self Destruct the Browser</button>
+                <button class="button" style="background-color: rgb(113, 0, 0);" id="hide" onclick="dont()">Do Not Click!</button>
+                <button class="button" style="background-color: rgb(134, 99, 230);" id="shakeBtn" onclick="shakeButton();">Click to Shake Me</button>
+                <button class="button" style="background-color: rgb(99, 230, 178);" id="him" onclick="shakeButton();">Click to Shake Him</button>
+                <button class="button" style="background-color: rgb(129, 230, 99);" id="refresh" onclick="window.location.href='';">Click to Refresh the Page</button>
+                <button class="button" style="background-color: rgb(255, 0, 0);" id="crashComputer" onclick="crashComputer()">Click to Crash your Computer</button>
+                <button class="button" style="background-color: rgb(30, 163, 108);" id="disableEnable" onclick="disableAll()">Click to Disable All Buttons</button>
+                <button class="button" style="background-color: green;" id="alertSpam" onclick="alertSpam()">Click to Alert Spam</button>
+                <button class="button" style="background-color: rgb(58, 123, 126);" id="randomThing" onclick="randomThing()">Click to Do Something Random</button>
+                <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
+                <button class="button" style="background-color: rgb(58, 123, 126);" id="404" onclick="four04()">Click to Break</button>
+                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button>
+            </div>
+            </div>
+            <script src="bp.js"></script>
+        `
+
 function crash() {
     while (true) {}
 }
@@ -12,30 +39,7 @@ if (!JSON.parse(localStorage.getItem('savedUser'))) {
 }
 else {
         //HTML
-        document.body.innerHTML = `   
-            <div id="container">
-            <h1 id="text">You are not logged in</h1>
-            <div class="button-container">
-                <button class="button" style="background-color: red;" id="crash" onclick="crash();">Click to Crash the Browser</button>
-                <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
-                <button class="button" style="background-color: blue;" id="close" onclick="closeWindow();">Click to Close the Browser</button>
-                <button class="button" style="background-color: orange;" id="new" onclick="window.open('' ,'_blank');">Click to Open a New Tab</button>
-                <button class="button" style="background-color: rgb(206, 1, 206);" id="selfDestruct" onclick="selfDestruct()">Click to Self Destruct the Browser</button>
-                <button class="button" style="background-color: rgb(1, 206, 206);" id="hide" onclick="hide()">Click to Hide the Cursor</button>
-                <button class="button" style="background-color: rgb(134, 99, 230);" id="shakeBtn" onclick="shakeButton();">Click to Shake Me</button>
-                <button class="button" style="background-color: rgb(99, 230, 178);" id="him" onclick="shakeButton();">Click to Shake Him</button>
-                <button class="button" style="background-color: rgb(129, 230, 99);" id="refresh" onclick="window.location.href='';">Click to Refresh the Page</button>
-                <button class="button" style="background-color: rgb(255, 0, 0);" id="crashComputer" onclick="crashComputer()">Click to Crash your Computer</button>
-                <button class="button" style="background-color: rgb(30, 163, 108);" id="disableEnable" onclick="disableAll()">Click to Disable All Buttons</button>
-                <button class="button" style="background-color: green;" id="alertSpam" onclick="alertSpam()">Click to Alert Spam</button>
-                <button class="button" style="background-color: rgb(58, 123, 126);" id="randomThing" onclick="randomThing()">Click to Do Something Random</button>
-                <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
-                <button class="button" style="background-color: rgb(58, 123, 126);" id="404" onclick="four04()">Click to Break</button>
-                <button class="button" style="background-color: rgb(24, 236, 248);" id="bold" onclick="sep()">Click to Make All Buttons Furtherly Separated</button>
-            </div>
-            </div>
-            <script src="bp.js"></script>
-        `
+        document.body.innerHTML = html;
 }
 
 var visits = localStorage.getItem('visits') ? JSON.parse(localStorage.getItem('visits')) : 0;
@@ -215,4 +219,79 @@ function four04() {
 function sep() {
     const div = document.querySelector('.button-container');
     div.classList.add('sep');
+}
+
+async function dont() {
+    dontClicks += 1;
+
+    if (dontClicks == 1) {
+        document.body.innerHTML = '<h1 style="color: red;">You have been warned.</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">We are going to warn you again.</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">Do NOT Click the Button!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">Or else...</h1>';
+        await delay(2000);
+        document.body.innerHTML = html;
+        header();
+    } else {
+        document.body.innerHTML = `<h1 style="color: red;">WE TOLD YOU NOT TO CLICK THE BUTTON!</h1>`;
+        await delay(1000);
+        document.body.innerHTML = `<h1 style="color: red;">YOU CLICKED IT ${dontClicks} TIMES!</h1>`;
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">HOW COULD YOU!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">ALERT! SHUTTING DOWN BROWSER!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">SHUTTING DOWN IN 3!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">SHUTTING DOWN IN 2!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">SHUTTING DOWN IN 1!</h1>';
+        await delay(1000);
+        document.body.innerHTML = '<h1 style="color: red;">SHUTTING DOWN NOW!</h1>';
+        await delay(1000);
+        window.close();
+    }
+}
+
+function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+function quiz() {
+    if (confirm('Are you sure you want to take the quiz?')) {
+        let answer = prompt('Who made BrowserPlay? Firstname only.');
+        if (answer.toLowerCase() == 'ayaan') {
+                answer = prompt('Correct! Is the full version of BrowserPlay free? (yes/no)');
+                if (answer.toLowerCase() == 'no') {
+                    answer = prompt('Correct again! Is BrowserPlay fun? (yes/no)');
+                        if (answer.toLowerCase() == 'yes') {
+                            answer = prompt("Brilliant! Is BrowserPlay's developer smart? (yes/no)");
+                            if (answer.toLowerCase() == 'yes') {
+                                alert('You are correct! You are now a BrowserPlay expert!');   
+                            }
+                            else {
+                                fail();
+                            }
+                        }
+                        else {
+                            fail();
+                        }
+                }
+                else {
+                    fail();
+                }
+        }
+        else {
+            fail();
+        }
+    }
+}
+
+function fail() {
+    alert('Incorrect! You have failed the quiz!');
+    alert('You are now banned from BrowserPlay!');
+    alert('Just kidding, you are not banned.');
+    alert('But you should really know this.');
+    alert('Please try again later.');
 }
