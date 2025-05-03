@@ -1,8 +1,8 @@
 var dontClicks = 0;
 
-const html = `   
+const html = ` 
             <div id="container">
-            <h1 id="text">You are not logged in</h1>
+            <h1 id="text"></h1>
             <div class="button-container">
                 <button class="button" style="background-color: red;" id="crash" onclick="crash();">Click to Crash the Browser</button>
                 <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
@@ -19,7 +19,7 @@ const html = `
                 <button class="button" style="background-color: rgb(58, 123, 126);" id="randomThing" onclick="randomThing()">Click to Do Something Random</button>
                 <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
                 <button class="button" style="background-color: rgb(58, 123, 126);" id="404" onclick="four04()">Click to Break</button>
-                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button>
+                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button
             </div>
             </div>
             <script src="bp.js"></script>
@@ -42,6 +42,14 @@ else {
         document.body.innerHTML = html;
 }
 
+async function type(message) {
+    const text = document.querySelector('#text');
+    for (let i = 0; i < message.length; i++) {
+        text.innerHTML += message.charAt(i);
+        await delay(50);
+    }
+}
+
 var visits = localStorage.getItem('visits') ? JSON.parse(localStorage.getItem('visits')) : 0;
 visits += 1;
 localStorage.setItem('visits', JSON.stringify(visits));
@@ -49,10 +57,10 @@ localStorage.setItem('visits', JSON.stringify(visits));
 function header() {
     const header = document.querySelector('#text');
     if (visits > 1) {
-        header.innerText = `Welcome back to BrowserPlay, ${user.username}!`;
+        type(`Welcome back to BrowserPlay, ${user.username}!`);
     }
     else if (visits == 1) {
-        header.innerText = `Welcome to BrowserPlay, ${user.username}!`;
+        type(`Welcome to BrowserPlay, ${user.username}!`);
     }
 
    /* if (header.innerText = 'You are not logged in') {
@@ -294,4 +302,23 @@ function fail() {
     alert('Just kidding, you are not banned.');
     alert('But you should really know this.');
     alert('Please try again later.');
+}
+
+
+async function zoom() {
+    document.body.style.zoom = parseFloat(document.body.style.zoom) + 0.2;
+    await delay(1000);
+    document.body.style.zoom = parseFloat(document.body.style.zoom) - 0.2;
+}
+
+function zoomIn() {
+    document.body.style.zoom = parseFloat(document.body.style.zoom) + 0.2;
+}
+  
+function zoomOut() {
+    document.body.style.zoom = parseFloat(document.body.style.zoom) - 0.2;
+}
+
+function resetZoom() {
+    document.body.style.zoom = 1;
 }
