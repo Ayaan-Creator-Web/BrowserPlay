@@ -33,7 +33,6 @@ body {
   .button {
     padding: 12px 24px;
     border: none;
-    font-size: 16px;
     border-radius: 10px;
     color: white;
     background-color: #007aff; /* your original blue */
@@ -58,12 +57,11 @@ body {
   
   .button:hover::after {
     left: 200%;
-  }
-  
+  } /*hi*/
   .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
+  } /*hi*/
   
   .hidden {
     cursor: none;
@@ -95,3 +93,16 @@ body {
     opacity: 1;
   }
   
+  #safe {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* To ensure it stays on top of other elements */
+}
+
+#danger {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* To ensure it stays on top of other elements */
+}
