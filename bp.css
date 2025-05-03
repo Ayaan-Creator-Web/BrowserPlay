@@ -33,6 +33,7 @@ body {
   .button {
     padding: 12px 24px;
     border: none;
+    font-size: 16px;
     border-radius: 10px;
     color: white;
     background-color: #007aff; /* your original blue */
