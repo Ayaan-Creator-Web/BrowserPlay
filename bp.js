@@ -1,3 +1,7 @@
+var typed = false;
+
+var confusing = false;
+
 var dontClicks = 0;
 
 const html = ` 
@@ -19,11 +23,30 @@ const html = `
                 <button class="button" style="background-color: rgb(58, 123, 126);" id="randomThing" onclick="randomThing()">Click to Do Something Random</button>
                 <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
                 <button class="button" style="background-color: rgb(58, 123, 126);" id="404" onclick="four04()">Click to Break</button>
-                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button
+                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button>
+                <button class="button" style="background-color: rgb(97, 158, 0);" id="confuse" onclick="alert('This is an experimental feature. To use this, please contact ayaan.khalique3@gmail.com to access BrowserPlay Experimental Edition')">Click to Confuse Yourself</button>
             </div>
             </div>
+            <button class="button" style="background-color: rgb(149, 57, 255);" id="safe" onclick="switchMode()">Click to Enter Safe Mode</button>
             <script src="bp.js"></script>
         `
+
+const safeHtml = `
+            <div id="container">
+            <h1 id="text"></h1>
+            <div class="button-container">
+                <button class="button" style="background-color: green;" id="alert" onclick="alert('Hello!');">Click to Alert</button> 
+                <button class="button" style="background-color: orange;" id="new" onclick="window.open('' ,'_blank');">Click to Open a New Tab</button>
+                <button class="button" style="background-color: rgb(134, 99, 230);" id="shakeBtn" onclick="shakeButton();">Click to Shake Me</button>
+                <button class="button" style="background-color: rgb(99, 230, 178);" id="him" onclick="shakeButton();">Click to Shake Him</button>
+                <button class="button" style="background-color: rgb(129, 230, 99);" id="refresh" onclick="window.location.href='';">Click to Refresh the Page</button>
+                <button class="button" style="background-color: rgb(225, 0, 255);" id="click">Click to do nothing</button>
+                <button class="button" style="background-color: rgb(24, 236, 248);" id="quiz" onclick="quiz()">Click to do a Quiz</button>
+            </div>
+            </div>
+            <button class="button" style="background-color: rgb(149, 57, 255);" id="danger" onclick="switchMode()">Click to Exit Safe Mode</button>
+            <script src="bp.js"></script>
+            `
 
 function crash() {
     while (true) {}
@@ -43,10 +66,17 @@ else {
 }
 
 async function type(message) {
-    const text = document.querySelector('#text');
-    for (let i = 0; i < message.length; i++) {
-        text.innerHTML += message.charAt(i);
-        await delay(50);
+    if (typed == false) {
+        typed = true;
+        const header = document.querySelector('#text');
+        header.innerHTML = '';
+        const text = document.querySelector('#text');
+        for (let i = 0; i < message.length; i++) {
+            text.innerHTML += message.charAt(i);
+            await delay(50);
+        }
+    } else {
+
     }
 }
 
@@ -57,9 +87,11 @@ localStorage.setItem('visits', JSON.stringify(visits));
 function header() {
     const header = document.querySelector('#text');
     if (visits > 1) {
-        type(`Welcome back to BrowserPlay, ${user.username}!`);
+        if (typed = true) header.innerHTML = `Welcome back to BrowserPlay, ${user.username}!`;
+        if (typed = false) type(`Welcome back to BrowserPlay, ${user.username}!`);
     }
     else if (visits == 1) {
+        header.innerHTML = `Welcome back to BrowserPlay, ${user.username}!`;
         type(`Welcome to BrowserPlay, ${user.username}!`);
     }
 
@@ -69,6 +101,20 @@ function header() {
 }
 
 header();
+
+function confuse() {
+    if (confusing == false) {
+        confusing = true;
+        //const header = document.querySelector('#text');
+        document.body.innerHTML = confusingHtml;
+        header();
+    } else {
+        confusing = false;
+        //const header = document.querySelector('#text');
+        document.body.innerHTML = html;
+        header();
+    }
+}
 
 async function closeWindow() {
     window.close();
@@ -260,7 +306,8 @@ async function dont() {
         await delay(1000);
         document.body.innerHTML = '<h1 style="color: red;">SHUTTING DOWN NOW!</h1>';
         await delay(1000);
-        window.close();
+        document.body.innerHTML = html;
+        header();
     }
 }
 
@@ -321,4 +368,14 @@ function zoomOut() {
 
 function resetZoom() {
     document.body.style.zoom = 1;
+}
+
+async function switchMode() {
+    if (document.body.innerHTML.includes('selfDestruct')) {
+        document.body.innerHTML = safeHtml;
+        header();
+    } else {
+        document.body.innerHTML = html;
+        header();
+    }
 }
