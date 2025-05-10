@@ -76,7 +76,8 @@ async function type(message) {
             await delay(50);
         }
     } else {
-
+        const header = document.querySelector('#text');
+        header.innerHTML = `Welcome back to BrowserPlay, ${user.username}!`;
     }
 }
 
@@ -87,11 +88,9 @@ localStorage.setItem('visits', JSON.stringify(visits));
 function header() {
     const header = document.querySelector('#text');
     if (visits > 1) {
-        if (typed = true) header.innerHTML = `Welcome back to BrowserPlay, ${user.username}!`;
-        if (typed = false) type(`Welcome back to BrowserPlay, ${user.username}!`);
+        type(`Welcome back to BrowserPlay, ${user.username}!`);
     }
     else if (visits == 1) {
-        header.innerHTML = `Welcome back to BrowserPlay, ${user.username}!`;
         type(`Welcome to BrowserPlay, ${user.username}!`);
     }
 
